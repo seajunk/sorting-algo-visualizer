@@ -5,12 +5,13 @@ import mergeSort from "../algorithms/mergeSort";
 import Graph from './Graph'
 
 const Experimental = () => {
-    const [userInput, setUserInput] = useState('1 2 3 4 5 6 7 8 9 10')
+    const [userInput, setUserInput] = useState('10 9 8 7 6 5 4 3 2 1')
     const [arr, setArr] = useState([]);
     const [number, setNumber] = useState(10);
     const [intervalId, setIntervalId] = useState(null);
     const [button, setButton] = useState('sort')
     const [func, setFunc] = useState(() => insertionSort)
+    const [slide, setSlide] = useState(0)
 
     let dict = new Object();
     dict['1'] = insertionSort;
@@ -104,10 +105,17 @@ const Experimental = () => {
     }
  
 
+    const handleSlide = (event) => {
+        clearInterval(intervalId)
+        setButton('sort')
+        var temp = Math.floor((func(userInput.split(" ").map(i => Number(i))).length - 1) * (event.target.value / 1000))
+        setArr(func(userInput.split(" ").map(i => Number(i)))[temp])
+    }
     
 
     const test = () => {
-        console.log(func)
+        console.log(func(arr).length)
+        console.log(userInput.split(" ").map(i => Number(i)))
     }
 
     return(
@@ -124,8 +132,9 @@ const Experimental = () => {
             </select>
             <button onClick={handleClick} >{button}</button>
             <button onClick={reset}>reset</button>
+            <input defaultValue='0' type="range" min='0' max='1000' onChange={handleSlide} ></input>
             <Graph data={arr}></Graph>
-            {/* <button onClick={test} >Test</button> */}
+            <button onClick={test} >Test</button>
         </div>
     )
 }
