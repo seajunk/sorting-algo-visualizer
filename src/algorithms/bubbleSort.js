@@ -1,5 +1,9 @@
+import { type } from "@testing-library/user-event/dist/type";
 
 function bubbleSort(arr) {
+    if(!Array.isArray(arr)){
+        return;
+    }
     var r = []
     var clone = arr.slice();
     var clone2 = clone.slice()

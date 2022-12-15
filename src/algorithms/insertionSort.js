@@ -1,6 +1,10 @@
 
 
 function insertionSort(bruh){
+    if(!Array.isArray(bruh)){
+        return;
+    }
+
     var arr = bruh.slice()
     var clone = arr.slice()
     var r = [];
