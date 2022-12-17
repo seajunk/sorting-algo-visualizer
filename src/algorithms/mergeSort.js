@@ -1,8 +1,22 @@
-function mergeSort(arr) {
-    arr.slice()
-    //turn list into tree than have function that sorts tree kinda like recursively mergesort
-    //and each time the tree to result after turning it back into array
+function mergeOnce(arr) {
+  var done = false;
+
+  function mergeSort(arr, finished) {
+    if (done) {
+      return;
+    }
+    if (arr.length < 2) {
+      done = finished;
+      return arr;
+    }
+    let mid = Math.floor(arr.length / 2);
+    let left = arr.slice(0, mid);
+    let right = arr.slice(mid);
+  }
 }
 
+function merge(A, B) {
+  return;
+}
 
-export default mergeSort
+export default mergeSort;
