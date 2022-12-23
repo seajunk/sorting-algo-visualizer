@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import insertionSort from "../algorithms/insertionSort";
 import bubbleSort from "../algorithms/bubbleSort";
-import mergeSort from "../algorithms/mergeSort";
+import { mergeSort } from "../algorithms/mergeSort";
 import selectionSort from "../algorithms/selectionSort";
 import Graph from "./Graph";
 
@@ -111,8 +111,8 @@ const Experimental = () => {
   };
 
   const test = () => {
-    console.log(func(arr).length);
-    console.log(userInput.split(" ").map((i) => Number(i)));
+    let a = [8, 7, 6, 5, 4, 3, 2, 1];
+    console.log(mergeSort(a));
   };
 
   return (
